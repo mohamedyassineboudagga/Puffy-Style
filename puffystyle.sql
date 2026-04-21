@@ -57,18 +57,6 @@ CREATE TABLE `contact_messages` (
 --
 -- Déchargement des données de la table `contact_messages`
 --
-
-INSERT INTO `contact_messages` (`id`, `name`, `email`, `subject`, `message`, `admin_reply`, `is_read`, `created_at`) VALUES
-('MSG09226759', 'sfasdf', 'Louay.Ncibi@polytechnicien.tn', 'Order Tracking', 'fdafsdfs', 'dasdasdasd', 1, '2026-04-17 22:13:20'),
-('MSG16879423', 'Louay Ncibi', 'Louay.Ncibi@polytechnicien.tn', 'Product Information', 'hello ich ', 'ok', 1, '2026-04-21 16:04:51'),
-('MSG30676268', 'sdsd', 'fasfsaf@sdfsdfaf', 'Product Information', 'dsdds', NULL, 1, '2026-04-15 23:44:29'),
-('MSG45230637', 'Louay Ncibi', 'Louay.Ncibi@polytechnicien.tn', 'Order Tracking', 'asdasd', NULL, 1, '2026-04-21 16:32:19'),
-('MSG47399602', 'Louay Ncibi', 'Louay.Ncibi@polytechnicien.tn', 'Order Tracking', 'I HAVN T RECEVE MY PRODUCT YET', 'I WILL BE DILIVRED TO YOU IN 2 DAYS', 1, '2026-04-17 21:47:58'),
-('MSG51177775', 'dsfsdf', 'Louay.Ncibi@polytechnicien.tn', 'Order Tracking', 'dfsd', 'sdfwggwgwg', 1, '2026-04-17 22:09:57'),
-('MSG60042773', 'dfsdf', 'Louay.Ncibi@polytechnicien.tn', 'Order Tracking', 'sdfsdfsdf', 'fwef', 1, '2026-04-17 22:04:30'),
-('MSG63956445', 'Louay Ncibi', 'Louay.Ncibi@polytechnicien.tn', 'Order Tracking', 'adfdfsdfg', 'fdff', 1, '2026-04-21 16:26:51'),
-('MSG66511017', 'ElfWorld Big B 99,999 Puffs 5MG', 'mohamedyassine.boudagga@polytechnicien.tn', 'Product Information', 'dasdasdasd', 'fdsfsdf', 1, '2026-04-15 23:50:17');
-
 -- --------------------------------------------------------
 
 --
@@ -90,11 +78,6 @@ CREATE TABLE `coupons` (
 
 --
 -- Déchargement des données de la table `coupons`
---
-
-INSERT INTO `coupons` (`id`, `code`, `type`, `value`, `min_order`, `max_uses`, `used_count`, `start_date`, `end_date`, `is_active`) VALUES
-('COUP6847649', 'AB', 'percentage', 15.000, 10.000, 1, 1, '2026-04-12', '2026-04-13', 1),
-('COUP9317255', 'AAAAA', 'fixed', 20.000, 20.000, 1, 0, '2026-04-12', '2026-04-13', 1);
 
 -- --------------------------------------------------------
 
@@ -113,12 +96,6 @@ CREATE TABLE `notifications` (
 --
 -- Déchargement des données de la table `notifications`
 --
-
-INSERT INTO `notifications` (`id`, `user_id`, `message`, `is_read`, `created_at`) VALUES
-(1, 'USR9413', 'Admin replied to: \'Order Tracking\' - dasdasdasd', 1, '2026-04-17 21:13:35'),
-(2, 'USR9413', 'Admin replied to: \'Product Information\' - ok', 1, '2026-04-21 15:05:22'),
-(3, 'USR9413', 'Admin replied to: \'Order Tracking\' - fdff', 0, '2026-04-21 15:28:48');
-
 -- --------------------------------------------------------
 
 --
@@ -143,14 +120,6 @@ CREATE TABLE `orders` (
   `created_at` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Déchargement des données de la table `orders`
---
-
-INSERT INTO `orders` (`id`, `user_id`, `order_number`, `status`, `subtotal`, `tax_amount`, `shipping_cost`, `discount_amount`, `total`, `shipping_address_id`, `shipping_method`, `payment_method`, `coupon_id`, `notes`, `created_at`) VALUES
-('ORD036180197', 'USR9413', 'ORD036180197', 'pending', 46.000, 0.000, 7.000, 0.000, 53.000, NULL, 'Standard', 'COD', NULL, 'Phone: 1651651 | City: dfsdf | Address: fsdfsdf', '2026-04-21 16:26:34'),
-('ORD492167565', 'USR9114', 'ORD492167565', 'pending', 55.000, 0.000, 7.000, 0.000, 62.000, NULL, 'Standard', 'COD', NULL, 'Phone: 54654 | City: gsrgsr | Address: gsrgsrg', '2026-04-16 10:57:12');
-
 -- --------------------------------------------------------
 
 --
@@ -172,8 +141,6 @@ CREATE TABLE `order_items` (
 -- Déchargement des données de la table `order_items`
 --
 
-INSERT INTO `order_items` (`id`, `order_id`, `product_id`, `flavor`, `product_name`, `quantity`, `unit_price`, `total_price`) VALUES
-('ORDI23508849', 'ORD036180197', 'PRD101', 'fdsadsf', 'dasdsad', 1, 46.000, 46.000);
 
 -- --------------------------------------------------------
 
@@ -192,10 +159,6 @@ CREATE TABLE `passforget` (
 --
 -- Déchargement des données de la table `passforget`
 --
-
-INSERT INTO `passforget` (`id`, `user_id`, `email`, `token`, `created_at`) VALUES
-(1, 'USR9114', 'mohamedyassine.boudagga@polytechnicien.tn', '90655910f969b8956eaa42b1e0f8a581de4b5fec7d19ca1a756f89b50ced0b2e', '2026-04-16 01:27:49');
-
 -- --------------------------------------------------------
 
 --
@@ -234,7 +197,6 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `category_id`, `name`, `slug`, `description`, `short_description`, `price`, `old_price`, `promo_type`, `promo_value`, `promotional_price`, `compare_price`, `sku`, `stock_quantity`, `brand`, `flavor`, `puff_count`, `image_main`, `additional_images`, `image_gallery`, `is_featured`, `is_active`, `created_at`, `updated_at`) VALUES
-('PRD101', NULL, 'dasdsad', 'dasdsad', 'fsdfsdf', NULL, 46.000, NULL, 'none', 0.000, 0.000, NULL, NULL, 49, NULL, 'fdsadsf', 1535, '1776461872_0_17758609250p3.1.jpg', '[]', NULL, 0, 1, '2026-04-17 22:37:52', '2026-04-21 16:26:34'),
 ('prd_69d97a5868559', NULL, 'Vozol Gear ICE AND SWEET 50K 50MG', 'vozol-gear-ice-and-sweet-50k-50mg', 'Massive Puff Count: Up to 50,000 puffs for extended use.\r\nBattery Capacity: Built-in 1100 mAh battery for long-lasting performance.\r\nNicotine Strength: 50 mg/ml, delivering a strong hit.\r\nFlavor Customization:\r\nICE Control: 4 levels of cooling effect.\r\nSWEET Control: 2 levels of sweetness adjustment.\r\nAirflow &amp;amp; Power Control: Personalize vapor intensity and flavor richness.\r\nConvenience: Disposable design — no refilling or maintenance required.', NULL, 69.000, NULL, 'none', 0.000, 0.000, NULL, NULL, 100, NULL, 'Blueberry Ice', 50000, '1775860312_0_p1.jpg', '[]', NULL, 0, 1, '2026-04-10 23:31:52', '2026-04-11 22:35:52'),
 ('prd_69d97b8222683', NULL, 'Vozol Rave 40K 50MG', 'vozol-rave-40k-50mg', 'Puff Capacity: Between 20,000 – 40,000 puffs, ensuring long-lasting use.\r\nBattery: 1000 mAh rechargeable battery with USB-C fast charging.\r\nE-liquid Capacity: 20 ml, generous for extended vaping sessions.\r\nNicotine Strength: 50 mg/ml, delivering a strong hit.\r\nDual Mesh Coils: Provides smoother, consistent flavor with every puff.\r\nTransparent Design: Lets you easily monitor e-liquid levels.\r\nColor Display: Shows device status for convenience and modern appeal.\r\nEco-friendly: Marketed as a more sustainable disposable option.', NULL, 59.000, NULL, 'none', 0.000, 0.000, NULL, NULL, 50, NULL, 'Blueberry Ice , Strawberry Mango, Blue Razz Ice , Mango Ice , Peach Ice', 50000, '1775860610_0_p2.1.jpg', '[\"1775860610_1_p2.2.jpg\",\"1775860610_2_p2.3.jpg\",\"1775860610_3_p2.4.jpg\",\"1775860610_4_p2.5.jpg\"]', NULL, 0, 1, '2026-04-10 23:36:50', '2026-04-11 22:36:09'),
 ('prd_69d97cbd5f44e', NULL, 'ElfBar ICE KING 40K 50MG', 'elf-bar-ice-king-40k-50mg', 'Puff Capacity: Up to 40,000 puffs for extended use.\r\nE-liquid Capacity: 20 ml of premium pre-filled liquid.\r\nNicotine Strength: 5% (50 mg/ml) for strong, satisfying hits.\r\nBattery: 850 mAh rechargeable with USB-C fast charging.\r\nCooling Control: 5 adjustable levels to customize freshness.\r\nVapor Intensity: 3 levels to personalize cloud density.\r\nLCD Screen: Displays battery life and e-liquid level.\r\nDesign: Sleek, portable, and durable for everyday use.', NULL, 59.000, NULL, 'none', 0.000, 0.000, NULL, NULL, 26, NULL, 'Watermelon Ice , Baja Splash , Peach+, Blue Rizz Ice , Dragon Strawnana', 40000, '1775860925_0_p3.1.jpg', '[\"1775860925_1_p3.2.jpg\",\"1775860925_2_p3.3.jpg\",\"1775860925_3_p3.4.jpg\",\"1775860925_4_p3.5.jpg\"]', NULL, 0, 1, '2026-04-10 23:42:05', '2026-04-17 21:04:02'),
@@ -288,9 +250,10 @@ CREATE TABLE `users` (
 --
 -- Déchargement des données de la table `users`
 --
-
+-- louay b password : 000000
+-- Mohamed Yassine password : admin123
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `date_of_birth`, `phone`, `role`, `is_active`, `created_at`, `updated_at`) VALUES
-('USR9114', 'Mohamed Yassine', 'a', 'mohamedyassine.a@polytechnicien.tn', '$2y$10$CAkhOgSe/AqjODC7CGrfP.qmEFkx/wIw12Ajco1FHx0VNJpEzOWsu', '2004-08-20', '+21688888888', 'admin', 1, '2026-04-09 21:37:01', '2026-04-21 22:54:15'),
+('USR9114', 'Mohamed Yassine', 'a', 'mohamedyassine.a@polytechnicien.tn', '$2y$10$wqvQ3Qx9w4Gv1k8q8yG7L.u9m3rC3xk9X9mP1kXl6Z2c2V3x0mY9G', '2004-08-20', '+21688888888', 'admin', 1, '2026-04-09 21:37:01', '2026-04-21 22:54:15'),
 ('USR9413', 'Louay', 'b', 'Louay.b@polytechnicien.tn', '$2y$10$O8O8/ovngESgqIW52.3BbOK2UaUFhLZtqvW/yADcyATvcIn9ilEBO', '2004-01-01', '+21699999999', 'customer', 1, '2026-04-09 21:49:15', '2026-04-21 22:54:28');
 
 --
